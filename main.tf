@@ -2,7 +2,7 @@ variable "vpc_id" {
   type = string
 }
 
-terraform {
+terraform { 
   required_providers {
     aws = {
       source  = "hashicorp/aws"
