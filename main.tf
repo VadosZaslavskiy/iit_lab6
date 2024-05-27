@@ -13,7 +13,9 @@ terraform {
 }
 
 provider "aws" {
-  region = "eu-north-1"
+  access_key = "YOUR_ACCESS_KEY"
+  secret_key = "YOUR_SECRET_KEY"
+  region     = "eu-north-1"
 }
 
 resource "aws_security_group" "docker_sg" {
@@ -22,10 +24,10 @@ resource "aws_security_group" "docker_sg" {
   vpc_id      = var.vpc_id
 
   egress {
-    from_port   = 0
-    to_port     = 0
-    protocol    = "-1"
-    cidr_blocks = ["0.0.0.0/0"]
+    from_port        = 0
+    to_port          = 0
+    protocol         = "-1"
+    cidr_blocks      = ["0.0.0.0/0"]
     ipv6_cidr_blocks = ["::/0"]
   }
 
@@ -54,7 +56,7 @@ resource "aws_security_group" "docker_sg" {
 resource "aws_instance" "docker_instance" {
   ami                    = "ami-064087b8d355e9051"
   instance_type          = "t3.micro"
-  key_name               = "lab"  
+  key_name               = "lab"
   vpc_security_group_ids = [aws_security_group.docker_sg.id]
 
   user_data = <<-EOF
