@@ -9,13 +9,11 @@ terraform {
       version = "~> 4.16"
     }
   }
-  required_version = ">= 1.3.0"
+  required_version = ">= 1.2.0"
 }
 
 provider "aws" {
-  access_key = "YOUR_ACCESS_KEY"
-  secret_key = "YOUR_SECRET_KEY"
-  region     = "eu-north-1"
+  region = "eu-north-1"
 }
 
 resource "aws_security_group" "docker_sg" {
