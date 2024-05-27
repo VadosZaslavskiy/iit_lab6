@@ -60,13 +60,10 @@ resource "aws_instance" "docker_instance" {
   user_data = <<-EOF
     #!/bin/bash
     sudo apt-get update
-    sudo apt-get install -y ca-certificates curl gnupg
-    curl -fsSL https://get.docker.com -o get-docker.sh
-    sh get-docker.sh
-    sudo docker pull idsad/lab45
-    sudo docker run -d -p 80:80 idsad/lab45
-    sudo docker pull containrrr/watchtower
-    sudo docker run -d --name watchtower --restart always -v /var/run/docker.sock:/var/run/docker.sock containrrr/watchtower --interval 10
+    sudo apt-get install -y nginx
+    sudo systemctl start nginx
+    sudo systemctl enable nginx
+    echo "<h3>Zaslavskiy Vadim</h3><h3>Zibnitskiy Danila</h3><b>USED VOLUME</b>" > /var/www/html/index.html
   EOF
 
   tags = {
