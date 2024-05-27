@@ -63,7 +63,7 @@ resource "aws_instance" "docker_instance" {
     sudo apt-get install -y nginx
     sudo systemctl start nginx
     sudo systemctl enable nginx
-    echo "<h3>Zaslavskiy Vadim</h3><h3>Zibnitskiy Danila</h3><b>USED VOLUME</b>" > /var/www/html/index.html
+    echo "<h3>Brigada 2</h3><h3>Terraform</h3>" > /var/www/html/index.html
   EOF
 
   tags = {
